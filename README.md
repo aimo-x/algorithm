@@ -1,0 +1,2 @@
+# algorithm
+ golang Simple algorithm
