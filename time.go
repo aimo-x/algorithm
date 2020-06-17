@@ -24,9 +24,12 @@ func (t Time) GetLastDateOfMonth(d time.Time) time.Time {
 	return t.GetFirstDateOfMonth(d).AddDate(0, 1, -1)
 }
 
-// ConsecutiveDays 判断日期中是否连续了 nd 天,并返回 <= nd 的最打连续天数
+// ConsecutiveDays 判断日期中是否连续了 nd 天,并返回 <= nd 的最大连续天数
 func (t Time) ConsecutiveDays(ds []time.Time, nd int) (ok bool, lx int) {
 	lx = 1
+	if len(ds) == 0 {
+		lx = 0
+	}
 	for i, va := range ds {
 		if i != 0 {
 			if va.Month() == ds[i-1].Month() { // 月份相同

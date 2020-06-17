@@ -9,11 +9,11 @@ import (
 
 func main() {
 	var ds []time.Time
-	nd := 30
-	for i := 0; i < 30; i++ {
+	nd := 2
+	for i := 0; i < 5; i++ {
 		ds = append(ds, time.Now().Add(time.Hour*time.Duration((24*i))))
 	}
-	// ds[4] = time.Now()
+	ds[3] = time.Now()
 	var t algorithm.Time
 	fmt.Println(t.ConsecutiveDays(ds, nd))
 }
